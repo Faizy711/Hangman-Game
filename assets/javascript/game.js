@@ -1,10 +1,11 @@
 
 var wordArr = ["aristotle","plato","socrates","pythagoras","hippocrates","parmenides"];
-var numGuess = 6;
+var numGuess = 8;
 var guessArr = [];
 var guessBool = true;
 var repeat = false;
 var correctGuess = 0;
+var arrayCount = 0;
 
 var numRandom = function(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -50,6 +51,7 @@ var keyPress = function(event){
 
     if(repeat === false){
         var guesCount = 0;
+        
         for(var i = 0; i < letterArr.length; i++){
             
 
@@ -59,6 +61,7 @@ var keyPress = function(event){
                 console.log("Letter " + event.key + " is correct!");
                 blankspace[i] = letterArr[i];
                 guesCount++;
+                arrayCount= arrayCount+1;
             }
         }
 
@@ -70,6 +73,7 @@ var keyPress = function(event){
         }
     
         guessArr.push(String.fromCharCode(event.keyCode));
+        
     
         if(guessBool === true){
             console.log("correct guess please guess again!");
@@ -82,30 +86,33 @@ var keyPress = function(event){
             numGuess = numGuess - 1; 
             console.log(numGuess);
         }
-    
+        console.log(guesCount);
+        console.log(arrayCount);
+
+        console.log(correctGuess);
+        console.log(letterArr.length);
         console.log(guessArr);
     }
-    else{
+    else if(repeat === true){
         // console.log("Already guessed this letter, please try again");
         // alert("Already guessed this letter, please try again.");
-        repeat = true;
-
-        
     }
 
-    if(correctGuess === letterArr.length){
-        alert("Yayyy you won!!");
+    if(arrayCount === ((letterArr.length))){
+        alert("Yayyy you won!! Click okay to start over.");
         window.location.reload(false);
     }
     else if(numGuess === 0){
-        alert("YOU LOSE!!!");
+        alert("YOU LOSE!!! Click okay to start over.");
         window.location.reload(false);
     }
 
     var guesSpan = document.querySelector("#numGuess");
+    
     var lettSpan = document.querySelector("#lettGuess");
+    
     guesSpan.innerHTML = numGuess;
-    lettSpan.innerHTML = guessArr;
+    lettSpan.innerHTML = guessArr.join(' ');
 
     document.querySelector("#currWord").innerHTML = blankspace.join("");
 }
