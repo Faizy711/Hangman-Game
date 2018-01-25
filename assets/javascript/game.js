@@ -6,8 +6,8 @@ var guessBool = true;
 var repeat = false;
 var correctGuess = 0;
 var arrayCount = 0;
-var yesAudio = new Audio('captain18.dsp.wav');
-var noAudio = new Audio('purin10.dsp.wav');
+var yesAudio = new Audio('assets/audio/captain18.dsp.wav');
+var noAudio = new Audio('assets/audio/purin10.dsp.wav');
 yesAudio.volume = 0.5;
 noAudio.volume =0.5;
 
