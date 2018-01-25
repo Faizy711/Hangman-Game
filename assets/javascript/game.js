@@ -149,3 +149,8 @@ var keyPress = function(event){
 
 addEventListener("keypress",keyPress);
 
+function setHalfVolume() {
+    var myAudio = document.getElementById("audio1");  
+    myAudio.volume = 0.5; 
+}
+
