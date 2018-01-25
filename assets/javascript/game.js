@@ -1,5 +1,5 @@
 
-var wordArr = ["aristotle","plato","socrates","pythagoras","hippocrates","parmenides"];
+var wordArr = ["yoshi","mario","fox","falco","pikachu","samus","link","zelda","shiek","captainfalcon","jigglypuff","mewtwo","marth","roy"];
 var numGuess = 7;
 var guessArr = [];
 var guessBool = true;
@@ -11,7 +11,7 @@ var numRandom = function(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-var arrNum = numRandom(0,5);
+var arrNum = numRandom(0,13);
 
 var letterArr = wordArr[arrNum].split('');
 
