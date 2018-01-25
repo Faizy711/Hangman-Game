@@ -6,6 +6,10 @@ var guessBool = true;
 var repeat = false;
 var correctGuess = 0;
 var arrayCount = 0;
+var yesAudio = new Audio('captain18.dsp.wav');
+var noAudio = new Audio('purin10.dsp.wav');
+yesAudio.volume = 0.5;
+noAudio.volume =0.5;
 
 var numRandom = function(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -62,6 +66,7 @@ var keyPress = function(event){
                 blankspace[i] = letterArr[i];
                 guesCount++;
                 arrayCount= arrayCount+1;
+                
             }
         }
 
@@ -77,12 +82,13 @@ var keyPress = function(event){
     
         if(guessBool === true){
             console.log("correct guess please guess again!");
-            
+            yesAudio.play();
             console.log(numGuess);
             correctGuess = correctGuess + 1;
         }
         else if(guessBool === false){
             console.log("incorrect answer lose a life!");
+            noAudio.play();
             numGuess = numGuess - 1; 
             console.log(numGuess);
         }
