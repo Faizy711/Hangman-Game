@@ -1,6 +1,6 @@
 
 var wordArr = ["aristotle","plato","socrates","pythagoras","hippocrates","parmenides"];
-var numGuess = 8;
+var numGuess = 7;
 var guessArr = [];
 var guessBool = true;
 var repeat = false;
@@ -17,13 +17,13 @@ var letterArr = wordArr[arrNum].split('');
 
 console.log(letterArr);
 
-var guesSpan = document.querySelector("#numGuess");
+// var guesSpan = document.querySelector("#numGuess"); //for numbered hangman
 var lettSpan = document.querySelector("#lettGuess");
 var wordSpan = document.querySelector("#currWord");
 
-guesSpan.innerHTML = numGuess;
+// guesSpan.innerHTML = numGuess; //for numbered hangman
 lettSpan.innerHTML = guessArr;
-// wordSpan.innerHTML = letterArr;
+// wordSpan.innerHTML = letterArr; //used for debugging and seeing my array display
 
 var blankspace = [];
 
@@ -102,19 +102,50 @@ var keyPress = function(event){
         alert("Yayyy you won!! Click okay to start over.");
         window.location.reload(false);
     }
+   
+    // var guesSpan = document.querySelector("#numGuess");
+    
+    var lettSpan = document.querySelector("#lettGuess");
+    
+    // guesSpan.innerHTML = numGuess;
+    lettSpan.innerHTML = guessArr.join(' ');
+
+    document.querySelector("#currWord").innerHTML = blankspace.join("");
+
+
+    if(numGuess === 6){
+        var newImg = document.querySelector("#numGuess");
+        newImg.src = 'assets/images/man1.png';
+    }
+    else if(numGuess === 5){
+        var newImg = document.querySelector("#numGuess");
+        newImg.src = 'assets/images/man2.png';
+    }
+    else if(numGuess === 4){
+        var newImg = document.querySelector("#numGuess");
+        newImg.src = 'assets/images/man3.png';
+    }
+    else if(numGuess === 3){
+        var newImg = document.querySelector("#numGuess");
+        newImg.src = 'assets/images/man4.png';
+    }
+    else if(numGuess === 2){
+        var newImg = document.querySelector("#numGuess");
+        newImg.src = 'assets/images/man5.png';
+    }
+    else if(numGuess === 1){
+        var newImg = document.querySelector("#numGuess");
+        newImg.src = 'assets/images/man6.png';
+    }
     else if(numGuess === 0){
+        var newImg = document.querySelector("#numGuess");
+        newImg.src = 'assets/images/man7.png';
         alert("YOU LOSE!!! Click okay to start over.");
         window.location.reload(false);
     }
 
-    var guesSpan = document.querySelector("#numGuess");
     
-    var lettSpan = document.querySelector("#lettGuess");
-    
-    guesSpan.innerHTML = numGuess;
-    lettSpan.innerHTML = guessArr.join(' ');
-
-    document.querySelector("#currWord").innerHTML = blankspace.join("");
 }
 
 addEventListener("keypress",keyPress);
+
