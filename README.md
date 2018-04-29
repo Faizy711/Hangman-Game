@@ -18,6 +18,8 @@ git clone
 ```
 or go to <a href="https://faizy711.github.io/Hangman-Game/" target="_blank">Nintendo Hangman</a>.
 
+Once at the page click on any of the letter on your key board and start playing. Once you win an alert will pop up or if you lose. Have fune!
+
 # Built Using 
 
 \
